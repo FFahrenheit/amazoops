@@ -1,0 +1,30 @@
+.search-group {
+
+    .category-selector {
+        font-size: 0.6em;
+        background-color: #E6E6E6;
+    }
+
+    .form-control {
+        min-width: 40vw;
+    }
+    .search-button {
+        font-size: 0.9em;
+        background-color: #FEBD69;
+    }
+}
+
+.shopping-cart {
+    align-self: center;
+    color: white;
+
+    i {
+        font-size: 1.5em;
+    }
+
+    span {
+        padding-left: 4px;
+        font-weight: bold;
+        font-size: 0.8em;
+    }
+}
