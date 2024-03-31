@@ -1,3 +1,5 @@
+// docker run --env-file=./.env node-api-products -p 3000:3000
+
 require('dotenv').config();
 const express = require('express');
 
@@ -8,10 +10,6 @@ app.use(express.urlencoded( { extended: true }));
 app.use(express.json());
 app.set('trust proxy', true);
 
-const productsRoutes = require('./routes/products.routes');
-
-app.use('/api/products', productsRoutes);
-
 app.use((req, res, next) => {
     const ip = req.ip.substring(req.ip.lastIndexOf(':') + 1);
     console.table([{ Timestamp: new Date().toLocaleString(), Method: req.method, Request: req.originalUrl, Client: ip }]);
@@ -21,16 +19,20 @@ app.use((req, res, next) => {
     next();
 });
 
+const productsRoutes = require('./routes/products.routes');
+
+app.use('/api/products', productsRoutes);
+
 app.route('/')
 .get((req, res) => {
     return res.json({
         success: true,
         data: new Date().toISOString(),
-        message: `Server running: ${process.env.NODE_ENV}`
+        message: `Products microservice running: ${process.env.NODE_ENV}`
     });
 });
 
 app.listen(port, () => {
     console.clear();
-    console.log(`Server running in port ${port} in ${process.env.NODE_ENV} mode`);
+    console.log(`Products microservice running in port ${port} in ${process.env.NODE_ENV} mode`);
 });

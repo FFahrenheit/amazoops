@@ -5,7 +5,6 @@ exports.getProducts = async(req, res) => {
         const products = await db.find({
             'type': 'product'
         });
-        console.log(products);
         return res.status(200).send({
             success: true,
             data: products
