@@ -23,4 +23,31 @@ export class ProductsService {
       }
     });
   }
+
+  searchProducts(search: string): Promise<any> {
+    return new Promise(async(resolve, reject) => {
+      try {
+        const query = new URLSearchParams({
+          'query': search
+        });
+        const response = await lastValueFrom(this.http.get(`${BASE_URL}/products/search?${query.toString()}`)) as any;
+        return resolve(response['data'] || []);
+      } catch(error) {
+        console.error(error);
+        return reject(error);
+      }
+    });
+  }
+
+  getProduct(id: string): Promise<any> {
+    return new Promise(async(resolve, reject) => {
+      try {
+        const response = await lastValueFrom(this.http.get(`${BASE_URL}/products/get/${id}`)) as any;
+        return resolve(response['data'] || {});
+      } catch(error) {
+        console.error(error);
+        return reject(error);
+      }
+    });
+  }
 }

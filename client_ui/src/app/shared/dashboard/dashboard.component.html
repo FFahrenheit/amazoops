@@ -18,16 +18,18 @@
         <div class="navbar-collapse" id="navbarSupportedContent" [class.collapse]="navbarCollapsed">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item me-3">
-                    <a class="nav-link active" aria-current="page" href="#"> Inicio</a>
+                    <a class="nav-link active" aria-current="page" [routerLink]="['']"> Inicio</a>
                 </li>
                 <li class="nav-item input-group">
-                    <div class="input-group search-group">
-                        <span class="input-group-text category-selector">Todas las categorías</span>
-                        <input type="text" class="form-control" placeholder="Buscar en amazoops.com">
-                        <button class="input-group-text search-button">
-                            <i class="fas fa-search"></i>
-                        </button>
-                    </div>
+                    <form (submit)="search($event)">
+                        <div class="input-group search-group">
+                            <span class="input-group-text category-selector">Todas las categorías</span>
+                            <input name="searchText" type="text" class="form-control" placeholder="Buscar en amazoops.com" [(ngModel)]="searchText">
+                            <button class="input-group-text search-button" type="submit">
+                                <i class="fas fa-search"></i>
+                            </button>
+                        </div>
+                    </form>
                 </li>
             </ul>
             <div class="d-flex">

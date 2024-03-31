@@ -2,10 +2,10 @@
     <div class="products-list m-2">
         <div class="product" *ngFor="let product of products">
             <div class="product-card m-1 p-3">
-                <div class="product-image text-center">
-                    <img [src]="product.image || 'https://www.lg.com/content/dam/channel/wcms/ca_en/images/desktop-monitors/27up850n-w_aus_enci_ca_en_c/Basic-450.jpg'">
+                <div class="product-image text-center" (click)="goTo(product._id)">
+                    <img [src]="product.image || 'assets/logo-face.png'">
                 </div>
-                <div class="name"> {{ product.name }} </div>
+                <div class="name" (click)="goTo(product._id)"> {{ product.name }} </div>
                 <div class="seller"> De {{ product.seller }} </div>
                 <div class="stars">
                     <i *ngFor="let star of getRating(product.rating)" [class]="star"></i>

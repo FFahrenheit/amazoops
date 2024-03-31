@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="row m-3 mt-5 product" *ngIf="isLoaded">
+        <div class="col-md-5">
+            <div class="image">
+                <img [src]="product.image">
+            </div>
+        </div>
+        <div class="col-md-5">
+            <div class="details">
+                <div class="name">
+                    {{ product.name }}
+                </div>
+                <div class="stars">
+                    <i *ngFor="let star of getRating(product.rating)" [class]="star"></i>
+                    {{ product.number_of_ratings }}
+                </div>
+                <hr>
+                <div class="price">
+                    <div class="mini">$</div>
+                    {{ product.price | number: '1.0-0' }}
+                    <div class="mini"> {{ getCents(product.price) | number: '2.0-0' }}</div>
+                </div>
+                <span class="prime">
+                    <i class="fas fa-check"></i>
+                    faulty
+                    <br>
+                </span>
+                <hr>
+                <div class="description">
+                    <div>Acerca de este artículo</div>
+                    {{ product.description }}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="buy">
+                <div class="price">
+                    <div class="mini">$</div>
+                    {{ product.price | number: '1.0-0' }}
+                    <div class="mini"> {{ getCents(product.price) | number: '2.0-0' }}</div>
+                </div>
+                <span class="prime">
+                    <i class="fas fa-check"></i>
+                    faulty
+                    <br>
+                </span>
+                <span class="shipping">Entrega GRATIS<br></span>
+                <div class="buttons">
+                    <button class="btn btn-warning add-to-card">Agregar al carrito</button>
+                    <button class="btn btn-warning buy-now">Comprar ahora</button>
+                </div>
+                <div class="seller mt-2">
+                    Vendido por: {{ product.seller }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

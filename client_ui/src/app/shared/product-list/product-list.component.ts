@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-product-list',
@@ -9,7 +10,7 @@ export class ProductListComponent implements OnInit {
 
   @Input() products: any[] = [];
   
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -20,15 +21,18 @@ export class ProductListComponent implements OnInit {
 
   getRating(rating: number) {
     const rounded = Math.round(rating*2) / 2;
-    console.log(rating, rounded);
-    return Array(5).fill(1).map((star, index) => {
-      if ((rounded >= (index + 1))) {
+    return Array(5).fill(1).map((_, index) => index + 1).map((star) => {
+      if (rounded >= star) {
         return 'fas fa-star';
-      } else if (rounded*2 % 2 == 1 && (rounded + 1) > (index + 1)) {
+      } else if (rounded*2 % 2 == 1 && (rounded + 1) > star) {
         return 'fas fa-star-half-alt';
       }
       return 'far fa-star';
     });
+  }
+
+  goTo(productId: string) {
+    this.router.navigate(['product', productId]);
   }
 
 }

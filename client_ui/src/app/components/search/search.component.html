@@ -1,0 +1,12 @@
+<div class="search p-3" *ngIf="isLoaded">
+    <div *ngIf="products && products.length > 0">
+        <h3>Resultados para "{{ searchText }}"</h3>
+        <app-product-list [products]="products"></app-product-list>
+    </div>
+
+    <div *ngIf="!products || products.length === 0">
+        <h4>
+            No hay resultados para "{{ searchText }}"
+        </h4>
+    </div>
+</div>
