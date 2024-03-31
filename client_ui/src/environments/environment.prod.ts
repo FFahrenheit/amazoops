@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  productsMicroservice: 'http://localhost:3301/api'
 };

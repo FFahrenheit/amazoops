@@ -1,0 +1,32 @@
+<div class="m-2">
+    <div class="products-list m-2">
+        <div class="product" *ngFor="let product of products">
+            <div class="product-card m-1 p-3">
+                <div class="product-image text-center">
+                    <img [src]="product.image || 'https://www.lg.com/content/dam/channel/wcms/ca_en/images/desktop-monitors/27up850n-w_aus_enci_ca_en_c/Basic-450.jpg'">
+                </div>
+                <div class="name"> {{ product.name }} </div>
+                <div class="seller"> De {{ product.seller }} </div>
+                <div class="stars">
+                    <i *ngFor="let star of getRating(product.rating)" [class]="star"></i>
+                    {{ product.number_of_ratings }}
+                </div>
+                <div class="price">
+                    <div class="mini">$</div>
+                    {{ product.price | number: '1.0-0' }}
+                    <div class="mini"> {{ getCents(product.price) | number: '2.0-0' }}</div>
+                </div>
+
+                <div class="buy">
+                    <span class="prime">
+                        <i class="fas fa-check"></i>
+                        faulty
+                        <br>
+                    </span>
+                    <span class="shipping">Entrega GRATIS<br></span>
+                    <button class="btn btn-warning">Agregar al carrito</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

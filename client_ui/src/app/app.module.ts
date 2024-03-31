@@ -9,6 +9,9 @@ import { AppRoutes } from './app.routing';
 import { HomeComponent } from './home/home.component';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ProductListComponent } from './shared/product-list/product-list.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
@@ -16,12 +19,14 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     LoaderSpinnerComponent,
     DashboardComponent,
     HomeComponent,
-    ErrorPageComponent
+    ErrorPageComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(AppRoutes),
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
