@@ -1,3 +1,6 @@
+// docker build . -t node-api-orders:latest
+// docker run --env-file=./.env node-api-orders:latest -p 3302:3002
+
 require('dotenv').config();
 const express = require('express');
 
@@ -6,6 +9,7 @@ const port = process.env.PORT || 3302;
 
 app.use(express.urlencoded( { extended: true }));
 app.use(express.json());
+app.use(require('sanitize').middleware);
 app.set('trust proxy', true);
 
 app.use((req, res, next) => {
@@ -18,8 +22,10 @@ app.use((req, res, next) => {
 });
 
 const usersRoutes = require('./routes/users.routes');
+const ordersRoutes = require('./routes/orders.routes');
 
 app.use('/api/users', usersRoutes);
+app.use('/api/orders', ordersRoutes);
 
 app.route('/')
 .get((req, res) => {

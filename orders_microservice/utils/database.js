@@ -20,9 +20,9 @@ class Database {
         console.log(`Connected to ${databaseName}`);
     }
 
-    async insert(doc) {
+    async insert(doc, options) {
         try {
-            const response = await this.db.insert(doc);
+            const response = await this.db.insert(doc, options);
             console.log(`Doc created with id: ${response.id}`);
             return response;
         } catch(error) {
@@ -40,9 +40,9 @@ class Database {
         }
     }
 
-    async find(query) {
+    async find(query, options) {
         try {
-            const q = { selector: query };
+            const q = { selector: query, ...options };
             const result = await this.db.find(q);
             return result.docs;
         } catch (error) {
