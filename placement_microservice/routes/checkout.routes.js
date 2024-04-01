@@ -5,6 +5,6 @@ const Auth = require('../middlewares/auth.middleware');
 
 router
     .route('/')
-    .post(Auth.verifyToken, Checkout.checkout)
+    .post(Auth.verifyToken, Checkout.checkout);
 
 module.exports = router;
