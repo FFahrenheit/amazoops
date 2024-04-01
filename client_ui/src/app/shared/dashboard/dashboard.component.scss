@@ -32,3 +32,29 @@
         font-size: 0.8em;
     }
 }
+
+.my-account {
+    color: white;
+    background-color: transparent;
+    border: none;
+
+    .hello {
+        font-size: 80%;
+        text-align: start;
+    }
+}
+
+.account-item {
+    &:active {
+        background-color: #FEBD69;
+        color: black;
+    }
+}
+
+.login {
+    min-width: 240px;
+
+    button, label, input {
+        font-size: 90%;
+    }
+}

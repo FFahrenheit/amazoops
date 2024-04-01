@@ -73,3 +73,31 @@ exports.login = async(req, res) => {
         });
     }
 }
+
+exports.getSession = async(req, res) => {
+    try {
+        const username = req.user['username'];
+        const loggedUser = await db.find({
+            type: 'user', 
+            username: username
+        }, {
+            fields: ['_id', 'username', 'name']
+        });
+        if (!loggedUser || loggedUser.length !== 1) {
+            return res.status(401).send({
+                success: false,
+                error: 'Session not valid'
+            });
+        }
+        return res.status(200).send({
+            success: true,
+            data: loggedUser[0]
+        });
+    } catch (error) {
+        console.error(error.message);
+        return res.status(500).send({
+            success: false,
+            error: error.message || error
+        });
+    }
+}

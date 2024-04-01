@@ -4,11 +4,13 @@ import { HomeComponent } from "./components/home/home.component";
 import { ErrorPageComponent } from "./shared/error-page/error-page.component";
 import { SearchComponent } from "./components/search/search.component";
 import { ProductComponent } from "./components/product/product.component";
+import { SessionGuard } from "./guards/session.guard";
 
 export const AppRoutes: Routes = [
     {
         path: '',
         component: DashboardComponent,
+        canActivate: [ SessionGuard ],
         children: [
             {
                 path: '',
@@ -21,11 +23,11 @@ export const AppRoutes: Routes = [
             {
                 path: 'product/:id',
                 component: ProductComponent
+            },
+            {
+                path: '**',
+                component: ErrorPageComponent   
             }
         ]
-    },
-    {
-        path: '**',
-        component: ErrorPageComponent   
     }
 ];
