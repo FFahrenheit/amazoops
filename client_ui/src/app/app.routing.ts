@@ -6,6 +6,7 @@ import { SearchComponent } from "./components/search/search.component";
 import { ProductComponent } from "./components/product/product.component";
 import { SessionGuard } from "./guards/session.guard";
 import { CartComponent } from "./components/cart/cart.component";
+import { PlaceOrderComponent } from "./components/place-order/place-order.component";
 
 export const AppRoutes: Routes = [
     {
@@ -28,6 +29,10 @@ export const AppRoutes: Routes = [
             {
                 path: 'cart',
                 component: CartComponent
+            },
+            {
+                path: 'place-order',
+                component: PlaceOrderComponent
             },
             {
                 path: '**',

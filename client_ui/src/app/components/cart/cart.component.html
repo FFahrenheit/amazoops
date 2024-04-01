@@ -3,7 +3,7 @@
         <h4>
             No tienes productos en tu carrito, agrega productos para continuar con la compra
         </h4>
-        <button class="btn btn-warning mt-2">
+        <button class="btn btn-warning mt-2" routerLink="/">
             Explora más productos
         </button>
     </div>
@@ -13,7 +13,26 @@
             Productos en mi carrito ({{ cart.length }}): 
         </h3>
 
-        <app-shopping-cart [products]="cart"></app-shopping-cart>
+        <div class="row">
+            <div class="col-md-9">
+                <app-shopping-cart [products]="cart"></app-shopping-cart>            
+            </div>
+            <div class="col-md-3 p-3 total-card">
+                <h5>
+                    Subtotal ({{cart.length}} productos): <span class="total"> {{ getTotal() | currency}} </span>
+                </h5>
+                <p>
+                    Pueden aplicarse tarifas de importación al finalizar la compra
+                </p>
+                <button class="btn btn-warning pay mb-2" routerLink="/place-order" [disabled]="!user">
+                    Proceder al pago
+                </button>
+                <span class="login-alert" *ngIf="!user">
+                    <span style="color: red">*</span> Inicie sesión para continuar con la compra
+                </span>
+            </div>
+        </div>
+
     </div>
 
 </div>
