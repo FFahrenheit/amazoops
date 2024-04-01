@@ -15,6 +15,7 @@ import { SearchComponent } from './components/search/search.component';
 import { FormsModule } from '@angular/forms';
 import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
+import { ShoppingCartComponent } from './shared/shopping-cart/shopping-cart.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { CartComponent } from './components/cart/cart.component';
     ProductListComponent,
     SearchComponent,
     ProductComponent,
-    CartComponent
+    CartComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,19 @@
-<p>cart works!</p>
+<div class="products p-3">
+    <div *ngIf="!cart || cart.length <= 0">
+        <h4>
+            No tienes productos en tu carrito, agrega productos para continuar con la compra
+        </h4>
+        <button class="btn btn-warning mt-2">
+            Explora más productos
+        </button>
+    </div>
+    
+    <div *ngIf="cart && cart.length > 0">
+        <h3>
+            Productos en mi carrito ({{ cart.length }}): 
+        </h3>
+
+        <app-shopping-cart [products]="cart"></app-shopping-cart>
+    </div>
+
+</div>

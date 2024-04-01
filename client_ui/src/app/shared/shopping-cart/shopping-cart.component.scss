@@ -1,0 +1,99 @@
+.products-list {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .product {
+        width: 100%;
+
+        .product-card {
+            border: 1px solid rgb(202, 202, 202);
+            border-radius: 4px;
+            .product-image {
+                cursor: pointer;
+                img {
+                    height: 20vh;
+                    width: 100%;
+                    object-fit: contain;
+                    overflow: hidden;;
+                }
+            }
+            .name {
+                font-weight: bold;
+
+                &:hover {
+                    cursor: pointer;
+                    text-decoration: underline;
+                    color: #8f3c01;
+                }
+            }
+
+            .price {
+                display: flex;
+                flex-direction: row;
+                font-size: 1em;
+
+                .mini {
+                    margin-top: .35em;
+                    align-self: top;
+                    font-size: .6em;
+                }
+            }
+
+            .seller {
+                font-size: 90%;
+                color: rgb(87, 87, 87);
+            }
+
+            .stars {
+                font-size: 80%;
+                color: #005091;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+                i {
+                    color: #FFA41C;
+                }
+            }
+
+            .buy {
+                .prime {
+                    color: #4EAFFF;
+                    font-weight: bold;
+                    font-size: 90%;
+                    i {
+                        color: #FEAD10;
+                    }
+                }
+                .shipping {
+                    font-size: 85%;
+                }
+                button {
+                    background-color: #FFD814;
+                    font-size: 80%;
+                    border-radius: 2em;
+
+                    &:hover {
+                        background-color: #ecc500;
+                    }
+                }
+                .spinner-border {
+                    font-size: 80%;
+                    color: #FFD814;
+                }
+            }
+
+            .remove-from-cart {
+                font-size: 90%;
+                color: #007185; 
+
+                &:hover {
+                    text-decoration: underline;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+}

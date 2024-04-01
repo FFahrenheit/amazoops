@@ -1,0 +1,47 @@
+<div class="m-2">
+    <div class="products-list m-2">
+        <div class="product" *ngFor="let product of products; index as i">
+            <div class="product-card m-1 p-3 row">
+                
+                <div class="product-image text-center col-md-3" (click)="goTo(product._id)">
+                    <img [src]="product.image || 'assets/logo-face.png'">
+                </div>
+
+                <div class="col-md-6">
+                    <div class="name" (click)="goTo(product._id)"> {{ product.name }} </div>
+                    <div class="seller"> De {{ product.seller }} </div>
+                    <div class="stars">
+                        <i *ngFor="let star of getRating(product.rating)" [class]="star"></i>
+                        {{ product.number_of_ratings }}
+                    </div>
+                    <div class="buy">
+                        <span class="prime">
+                            <i class="fas fa-check"></i>
+                            faulty
+                            <br>
+                        </span>
+                        <span class="shipping">Entrega GRATIS<br></span>
+                        <button *ngIf="!product.isAdding" class="btn btn-warning" (click)="addToCart(i)">
+                            Agregar otro
+                        </button>
+                        <div *ngIf="product.isAdding" class="spinner-border text-warning" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </div>
+
+                        <div class="remove-from-cart mt-2" (click)="removeFromCart(i)">
+                            Eliminar del carrito
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-2">
+                    <div class="price">
+                        <div class="mini">$</div>
+                        {{ product.price | number: '1.0-0' }}
+                        <div class="mini"> {{ getCents(product.price) | number: '2.0-0' }}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

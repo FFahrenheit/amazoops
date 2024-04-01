@@ -3,18 +3,16 @@ import { Router } from '@angular/router';
 import { CartService } from 'src/app/services/cart.service';
 
 @Component({
-  selector: 'app-product-list',
-  templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.scss']
+  selector: 'app-shopping-cart',
+  templateUrl: './shopping-cart.component.html',
+  styleUrls: ['./shopping-cart.component.scss']
 })
-export class ProductListComponent implements OnInit {
+export class ShoppingCartComponent implements OnInit {
+  @Input() products: any = [];
 
-  @Input() products: any[] = [];
-  
   constructor(
     private router: Router,
-    private cartService: CartService
-    ) { }
+    private cartService: CartService) { }
 
   ngOnInit(): void {
   }
@@ -45,5 +43,9 @@ export class ProductListComponent implements OnInit {
       this.products[index].isAdding = false;
       this.cartService.addItem(this.products[index]);
     }, 1200);
+  }
+
+  removeFromCart(index: number) {
+    this.cartService.removeItem(index);
   }
 }
