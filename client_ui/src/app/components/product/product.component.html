@@ -46,7 +46,10 @@
                 </span>
                 <span class="shipping">Entrega GRATIS<br></span>
                 <div class="buttons">
-                    <button class="btn btn-warning add-to-card">Agregar al carrito</button>
+                    <button *ngIf="!product.isAdding" class="btn btn-warning add-to-card" (click)="addToCart()">Agregar al carrito</button>
+                    <div *ngIf="product.isAdding" class="spinner-border text-warning" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
                     <button class="btn btn-warning buy-now">Comprar ahora</button>
                 </div>
                 <div class="seller mt-2">

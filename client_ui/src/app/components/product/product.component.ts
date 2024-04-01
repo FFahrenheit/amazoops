@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 import { ProductsService } from 'src/app/services/products.service';
 
 @Component({
@@ -16,7 +17,8 @@ export class ProductComponent implements OnInit {
   constructor(
     private router: Router,
     private route: ActivatedRoute,
-    private productsService: ProductsService
+    private productsService: ProductsService,
+    private cartService: CartService
   ) { }
 
   ngOnInit(): void {
@@ -26,7 +28,6 @@ export class ProductComponent implements OnInit {
         try {
           this.isLoaded = false;
           this.product = await this.productsService.getProduct(this.productId);
-          console.log(this.product)
           this.isLoaded = true;
         } catch (error) {
           console.error(error);
@@ -50,6 +51,14 @@ export class ProductComponent implements OnInit {
       }
       return 'far fa-star';
     });
+  }
+
+  addToCart() {
+    this.product.isAdding = true;
+    setTimeout(() => {
+      this.cartService.addItem(this.product);
+      this.product.isAdding = false;
+    }, 1200);
   }
 
 }

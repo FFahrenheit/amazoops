@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-product-list',
@@ -10,7 +11,10 @@ export class ProductListComponent implements OnInit {
 
   @Input() products: any[] = [];
   
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private cartService: CartService
+    ) { }
 
   ngOnInit(): void {
   }
@@ -35,4 +39,11 @@ export class ProductListComponent implements OnInit {
     this.router.navigate(['product', productId]);
   }
 
+  addToCart(index: number) {
+    this.products[index].isAdding = true;
+    setTimeout(() => {
+      this.cartService.addItem(this.products[index]);
+      this.products[index].isAdding = false;
+    }, 1200);
+  }
 }
