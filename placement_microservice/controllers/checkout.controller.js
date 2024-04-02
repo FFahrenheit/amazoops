@@ -1,4 +1,5 @@
 const db = require('../utils/database');
+const Transactions = require('./transactions.producer.controller');
 
 exports.checkout = async(req, res) => {
     try {
@@ -36,8 +37,11 @@ exports.checkout = async(req, res) => {
             });
         }
         // Insert order -- to be done
-        // const response = await db.insert(order);
-        console.log(order);
+        const response = await db.insert(order);
+        console.log(response, order);
+
+        Transactions.startTransaction({'hello': 'ola'});
+
         
         return res.status(200).send({
             success: true,

@@ -2,6 +2,7 @@ import pika
 import time
 import os
 from dotenv import load_dotenv
+from transaction_controller import TransactionController
 
 load_dotenv()
 
@@ -19,6 +20,8 @@ class TransactionsWorker:
 
             self.channel.queue_declare(queue=self.queue_name, durable=True)
             print(' [*] Microservicio de transacciones corriendo')
+
+            self.controller = TransactionController()
         except Exception as e:
             print(e)
 
@@ -29,7 +32,9 @@ class TransactionsWorker:
         self.channel.start_consuming()
     
     def on_request(self, ch, method, properties, body):
-        print(f" [x] Transacción recibida {body.decode()}")
+        request = body.decode()
+        print(f" [x] Transacción recibida {request}")
+        self.controller.process_transaction(request)
         time.sleep(3)
         print(f" [x] Transacción validada")
         ch.basic_ack(delivery_tag=method.delivery_tag)

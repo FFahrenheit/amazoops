@@ -1,12 +1,12 @@
 # Node version
 FROM node:20-bullseye-slim
 
-WORKDIR /app-orders
+WORKDIR /app-placement
 
 COPY . .
 
 RUN npm install
 
-EXPOSE 3302
+EXPOSE 3303
 
 CMD ["npm", "start"]
