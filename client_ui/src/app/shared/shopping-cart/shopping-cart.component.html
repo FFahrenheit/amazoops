@@ -21,14 +21,14 @@
                             <br>
                         </span>
                         <span class="shipping">Entrega GRATIS<br></span>
-                        <button *ngIf="!product.isAdding" class="btn btn-warning" (click)="addToCart(i)">
+                        <button *ngIf="!product.isAdding && canModify" class="btn btn-warning" (click)="addToCart(i)">
                             Agregar otro
                         </button>
                         <div *ngIf="product.isAdding" class="spinner-border text-warning" role="status">
                             <span class="sr-only">Loading...</span>
                         </div>
 
-                        <div class="remove-from-cart mt-2" (click)="removeFromCart(i)">
+                        <div *ngIf="canModify" class="remove-from-cart mt-2" (click)="removeFromCart(i)">
                             Eliminar del carrito
                         </div>
                     </div>

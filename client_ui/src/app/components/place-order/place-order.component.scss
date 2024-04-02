@@ -1,0 +1,16 @@
+.total-card {
+    flex-direction: row;
+
+    .total {
+        font-weight: bold;
+    }
+
+    .pay {
+        background-color: #F7CA00;
+        width: 100%;
+    }
+
+    .login-alert {
+        font-size: 0.9em;
+    }
+}

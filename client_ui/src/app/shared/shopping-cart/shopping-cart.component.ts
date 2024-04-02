@@ -9,6 +9,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class ShoppingCartComponent implements OnInit {
   @Input() products: any = [];
+  @Input() canModify = true;
 
   constructor(
     private router: Router,

@@ -7,6 +7,7 @@ import { ProductComponent } from "./components/product/product.component";
 import { SessionGuard } from "./guards/session.guard";
 import { CartComponent } from "./components/cart/cart.component";
 import { PlaceOrderComponent } from "./components/place-order/place-order.component";
+import { CheckoutGuard } from "./guards/checkout.guard";
 
 export const AppRoutes: Routes = [
     {
@@ -32,7 +33,8 @@ export const AppRoutes: Routes = [
             },
             {
                 path: 'place-order',
-                component: PlaceOrderComponent
+                component: PlaceOrderComponent,
+                canActivate: [ CheckoutGuard ]
             },
             {
                 path: '**',

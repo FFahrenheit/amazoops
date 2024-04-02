@@ -20,6 +20,9 @@ export class AuthService {
     this.token = localStorage.getItem('token') || '';
     return new Promise(async(resolve, reject) => {
       try {
+        if (!this.token) {
+          throw new Error('No token found');
+        }
         const response = await lastValueFrom(this.http.get<any>(`${BASE_URL}/users/session`, {
           headers: {
             'Authorization': this.token
