@@ -17,6 +17,7 @@ import { ProductComponent } from './components/product/product.component';
 import { CartComponent } from './components/cart/cart.component';
 import { ShoppingCartComponent } from './shared/shopping-cart/shopping-cart.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { OrdersComponent } from './components/orders/orders.component';
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { PlaceOrderComponent } from './components/place-order/place-order.compon
     ProductComponent,
     CartComponent,
     ShoppingCartComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    OrdersComponent
   ],
   imports: [
     BrowserModule,

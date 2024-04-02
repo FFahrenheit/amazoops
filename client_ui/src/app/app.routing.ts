@@ -8,6 +8,8 @@ import { SessionGuard } from "./guards/session.guard";
 import { CartComponent } from "./components/cart/cart.component";
 import { PlaceOrderComponent } from "./components/place-order/place-order.component";
 import { CheckoutGuard } from "./guards/checkout.guard";
+import { OrdersComponent } from "./components/orders/orders.component";
+import { LoggedGuard } from "./guards/logged.guard";
 
 export const AppRoutes: Routes = [
     {
@@ -35,6 +37,11 @@ export const AppRoutes: Routes = [
                 path: 'place-order',
                 component: PlaceOrderComponent,
                 canActivate: [ CheckoutGuard ]
+            },
+            {
+                path: 'orders',
+                component: OrdersComponent,
+                canActivate: [ LoggedGuard ]
             },
             {
                 path: '**',
