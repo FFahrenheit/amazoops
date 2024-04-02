@@ -13,6 +13,7 @@ exports.startTransaction = async(body) => {
             ), {
                 persistent: true
             });
+        console.log('Message sent to queue');
 
         setTimeout(() => {
             connection.close();

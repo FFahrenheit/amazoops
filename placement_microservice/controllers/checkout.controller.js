@@ -5,11 +5,13 @@ exports.checkout = async(req, res) => {
     try {
         const order = {
             type: 'order',
+            status: 'En proceso',
             user: req.user.username,
             products: req.body.products,
-            address: req.bodyString('address')
+            address: 'user:' + req.bodyString('address')
         };
         const payment = req.body.payment;
+        let total = 0;
         order.products = order.products.map(product => ({
             _id: product._id,
             name: product.name,
@@ -24,11 +26,13 @@ exports.checkout = async(req, res) => {
                 product.quantity = 1;
                 arr.push(product);
             } else {
-                arr[index].price += product.price;
+                arr[index].total += product.price;
                 arr[index].quantity += 1;
             }
+            total += product.price;
             return arr;
         }, []);
+        order.total = total;
 
         if (!order['products'] || !payment || !order['address']) {
             return res.json(401).send({
@@ -36,16 +40,18 @@ exports.checkout = async(req, res) => {
                 error: 'Incomplete order'
             });
         }
-        // Insert order -- to be done
         const response = await db.insert(order);
-        console.log(response, order);
-
-        Transactions.startTransaction({'hello': 'ola'});
-
+        const transaction = {
+            order: response.id,
+            payment
+        };
+        Transactions.startTransaction(transaction);
         
         return res.status(200).send({
             success: true,
-            data: 'saved'
+            data: {
+                id: response.id
+            }
         });
     } catch (error) {
         console.error(error);

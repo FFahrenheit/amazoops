@@ -14,3 +14,28 @@ class Database:
             print(f"Conectado exitosamente a [{database_name}]")
         except Exception as e:
             print(e)
+
+    def get(self, document_id):
+        try:
+            result = self.db.get(document_id)
+            return result
+        except Exception as e:
+            print(e)
+    def find(self, query, fields=[]):
+        try:
+            result = self.db.find(selector=query, fields=fields)
+            return result['docs']
+        except Exception as e:
+            print(e)
+
+    def update(self, doc):
+        try:
+            return self.db.put(doc)
+        except Exception as e:
+            print(e)
+    
+    def update_bulk(self, docs):
+        try:
+            return self.db.update(docs)
+        except Exception as e:
+            print(e)

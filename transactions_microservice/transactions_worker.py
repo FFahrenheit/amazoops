@@ -33,8 +33,8 @@ class TransactionsWorker:
     
     def on_request(self, ch, method, properties, body):
         request = body.decode()
-        print(f" [x] Transacción recibida {request}")
+        print(f" [x] Transacción recibida")
         self.controller.process_transaction(request)
-        time.sleep(3)
+        # time.sleep(3)
         print(f" [x] Transacción validada")
         ch.basic_ack(delivery_tag=method.delivery_tag)
