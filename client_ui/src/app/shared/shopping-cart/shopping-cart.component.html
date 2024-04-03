@@ -4,7 +4,7 @@
             <div class="product-card m-1 p-3 row">
                 
                 <div class="product-image text-center col-md-3" (click)="goTo(product._id)">
-                    <img [src]="product.image || 'assets/logo-face.png'">
+                    <img [src]="product.image || 'assets/logo-face.png'" [alt]="product.name">
                 </div>
 
                 <div class="col-md-6">

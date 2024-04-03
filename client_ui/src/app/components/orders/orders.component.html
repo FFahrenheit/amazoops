@@ -1,1 +1,18 @@
-<p>orders works!</p>
+<div class="products p-3" *ngIf="isLoaded">
+    <h3>
+        Mis órdenes
+    </h3>
+    <div *ngIf="!orders || orders.length <= 0">
+        <h4>
+            No tienes órdenes por ahora, agrega productos para continuar con la compra
+        </h4>
+        <button class="btn btn-warning mt-2" routerLink="/">
+            Explora más productos
+        </button>
+    </div>
+    
+    <div *ngIf="orders && orders.length > 0">
+        <app-orders-list [orders]="orders"></app-orders-list>
+    </div>
+
+</div>

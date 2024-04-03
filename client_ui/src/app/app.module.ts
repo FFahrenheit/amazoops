@@ -18,6 +18,7 @@ import { CartComponent } from './components/cart/cart.component';
 import { ShoppingCartComponent } from './shared/shopping-cart/shopping-cart.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { OrdersComponent } from './components/orders/orders.component';
+import { OrdersListComponent } from './shared/orders-list/orders-list.component';
 
 
 @NgModule({
@@ -33,7 +34,8 @@ import { OrdersComponent } from './components/orders/orders.component';
     CartComponent,
     ShoppingCartComponent,
     PlaceOrderComponent,
-    OrdersComponent
+    OrdersComponent,
+    OrdersListComponent
   ],
   imports: [
     BrowserModule,
