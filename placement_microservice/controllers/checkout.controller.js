@@ -8,7 +8,8 @@ exports.checkout = async(req, res) => {
             status: 'En proceso',
             user: req.user.username,
             products: req.body.products,
-            address: 'user:' + req.bodyString('address')
+            address: req.bodyString('address'),
+            date: new Date()
         };
         const payment = req.body.payment;
         let total = 0;

@@ -20,7 +20,6 @@ class TransactionController:
         success = True
         updated_docs = []
 
-
         for product in product_stocks:
             products[product['_id']] = product
 
@@ -39,7 +38,7 @@ class TransactionController:
 
         if success:
             if round(total, 2) != round(db_order['total'], 2):
-                print('Orden confirmada')
+                print('Orden sospechosa')
                 db_order['status'] = 'En investigación'
                 updated_docs = [ db_order ]
             else:
