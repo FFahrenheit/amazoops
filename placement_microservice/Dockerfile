@@ -1,4 +1,6 @@
-# Node version
+# docker build . -t node-api-placement:latest
+# docker run --env-file=./.env node-api-placement:latest -p 3303:3003
+
 FROM node:20-bullseye-slim
 
 WORKDIR /app-placement

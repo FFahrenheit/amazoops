@@ -1,0 +1,1 @@
+docker run -it --rm --name rabbitmq -p 5673:5672 -p 15673:15672 --network api_gateway rabbitmq:3.13-management

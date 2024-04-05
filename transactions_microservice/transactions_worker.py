@@ -1,5 +1,4 @@
 import pika
-import time
 import os
 from dotenv import load_dotenv
 from transaction_controller import TransactionController
@@ -11,6 +10,7 @@ class TransactionsWorker:
         try:
             host = os.getenv('QUEUE_HOST') or 'localhost'
             port = int(os.getenv('QUEUE_HOST_PORT')) or 5672
+            print(host, port)
             self.queue_name = os.getenv('QUEUE_NAME') or 'amazoops_transactions'
             self.credentials = pika.PlainCredentials(os.getenv('QUEUE_USERNAME'), os.getenv('QUEUE_PASSWORD'))
 
@@ -24,12 +24,16 @@ class TransactionsWorker:
             self.controller = TransactionController()
         except Exception as e:
             print(e)
+            raise e
 
     def start_consuming(self):
-        self.channel.basic_qos(prefetch_count=1)
-        self.channel.basic_consume(queue=self.queue_name, on_message_callback=self.on_request)
+        try:
+            self.channel.basic_qos(prefetch_count=1)
+            self.channel.basic_consume(queue=self.queue_name, on_message_callback=self.on_request)
 
-        self.channel.start_consuming()
+            self.channel.start_consuming()
+        except Exception as e:
+            print(e)
     
     def on_request(self, ch, method, properties, body):
         request = body.decode()

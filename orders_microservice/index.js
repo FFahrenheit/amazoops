@@ -1,6 +1,3 @@
-// docker build . -t node-api-orders:latest
-// docker run --env-file=./.env node-api-orders:latest -p 3302:3002
-
 require('dotenv').config();
 const express = require('express');
 
