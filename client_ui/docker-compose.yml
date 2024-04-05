@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  client_ui:
+    build: .
+    image: angular-client:latests
+    container_name: client_ui
+    ports:
+      - "8080:80"
+    networks:
+      - api_gateway
+
+networks:
+  api_gateway:
+    driver: bridge

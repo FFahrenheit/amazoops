@@ -45,7 +45,7 @@ export class PlaceOrderComponent implements OnInit {
     }
     const ok = await this.placementService.placeOrder(this.model, this.cart);
     if (ok) {
-      // this.cartService.clearCart()
+      this.cartService.clearCart()
       this.router.navigate(['orders']);
     } else {
       this.model.number = '';

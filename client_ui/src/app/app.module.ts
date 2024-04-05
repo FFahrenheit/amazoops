@@ -39,7 +39,7 @@ import { OrdersListComponent } from './shared/orders-list/orders-list.component'
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(AppRoutes),
+    RouterModule.forRoot(AppRoutes, {useHash: true}),
     NgbModule,
     HttpClientModule,
     FormsModule

@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  products_microservice:
+    image: node-api-products:latest
+    container_name: products_microservice
+    env_file: ./.env.production.local
+    networks:
+      - api_gateway
+    ports:
+      - "3301:3301"
+
+networks:
+  api_gateway:
+    driver: bridge

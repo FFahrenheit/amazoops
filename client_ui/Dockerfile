@@ -1,5 +1,7 @@
 # docker build . -t angular-client:latest
 # docker run -p 8080:80 angular-client:latest
+# docker rm products_microservice
+# docker-compose up -d
 
 FROM node:20-bullseye-slim as angular
 

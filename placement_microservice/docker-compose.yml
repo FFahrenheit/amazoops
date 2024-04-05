@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  placement_microservice:
+    image: node-api-placement:latest
+    container_name: placement_microservice
+    env_file: ./.env.production.local
+    networks:
+      - api_gateway
+    ports:
+      - "3303:3303"
+
+networks:
+  api_gateway:
+    driver: bridge

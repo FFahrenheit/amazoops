@@ -1,0 +1,13 @@
+version: '3.8'
+
+services:
+  transactions_microservice:
+    image: python-api-transactions:latest
+    container_name: transactions_microservice
+    env_file: ./.env.production.local
+    networks:
+      - api_gateway
+
+networks:
+  api_gateway:
+    driver: bridge

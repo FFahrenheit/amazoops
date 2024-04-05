@@ -1,5 +1,7 @@
 # docker build . -t node-api-products:latest
 # docker run --env-file=./.env -p 3301:3001 node-api-products:latest
+# docker rm products_microservice
+# docker-compose up -d
 
 FROM node:20-bullseye-slim
 
