@@ -3,7 +3,7 @@ version: '3.8'
 services:
   client_ui:
     build: .
-    image: angular-client:latests
+    image: angular-client:latest
     container_name: client_ui
     ports:
       - "8080:80"
