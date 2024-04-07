@@ -21,6 +21,7 @@ class Database:
             return result
         except Exception as e:
             print(e)
+
     def find(self, query, fields=[]):
         try:
             result = self.db.find(selector=query, fields=fields)
