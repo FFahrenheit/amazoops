@@ -3,7 +3,7 @@
 # docker rm client_ui
 # docker-compose up -d
 
-FROM node:20-bullseye-slim as angular
+FROM node:20-bullseye-slim AS angular
 
 WORKDIR /app-client
 
