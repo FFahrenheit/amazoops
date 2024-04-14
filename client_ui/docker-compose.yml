@@ -6,7 +6,7 @@ services:
     image: angular-client:latest
     container_name: client_ui
     ports:
-      - "8080:80"
+      - "8081:80"
     networks:
       - api_gateway
 

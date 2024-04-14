@@ -1,9 +1,8 @@
 # Microservicio Productos
 
-Este microservicio es un ligero servidor express de Node.js que se encarga de gestionar operaciones de lectura y escritura sobre sesiones y usuarios, principalmente aquellos relacionados al usuario y sus órdenes
-- Listar sus órdenes y el estado de ellas
-- Iniciar sesión
-- Crear usuarios
+Este microservicio es un ligero servidor express de Node.js que se encarga de gestionar operaciones de escritura sobre órdenes, principalmente todo lo relacionado al checkout
+- Creación de órdenes
+- Paso de órden a pasarela
 
 ### Dependencias
 Este microservicio utiliza un par de librerias para consultar los datos, protecciones de datos, transferencia, comunicaciones, cifrados, etc.
@@ -15,6 +14,7 @@ Este microservicio utiliza un par de librerias para consultar los datos, protecc
 - jsonwebtoken: Para crear JWT útiles para guardar las sesiones del usuario
 - cors: Para limitar los orígenes de las peticiones que pueden entrar
 - sanitize: Para limitar el tipo de los datos recibidos en endpoints sensibles
+- amqplib: Para conectarse al servidor de colas de mensajes
 
 ### Justificación
 Este servicio maneja datos sensibles, como contraseñas y órdenes, por lo cual
@@ -22,3 +22,4 @@ Este servicio maneja datos sensibles, como contraseñas y órdenes, por lo cual
 - Usa librerías de criptografía para garantizar más datos sobre los datos manejados
 - Usa tokens como medio de autenticación para obtener datos sobre ciertos usuarios
 - Utiliza herramientas más específicas de validación de tipos y sanitizantes para evitar inyecciones
+- Utiliza el protocolo AMQ para conectarse al servicio de colas de mensajes

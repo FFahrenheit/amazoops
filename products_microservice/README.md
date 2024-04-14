@@ -16,3 +16,6 @@ Este microservicio solamente utiliza un par de librerias para funcionar, las cua
 Este servicio solo cuenta con operaciones de lectura, por lo cual
 - Está disponible públicamente, sin restringir los orígenes de las conexiones
 - No usa autenticación
+
+### Kubernetes
+Este servicio, al estar expuesto al "público", fue el elegido para hacer las pruebas de Kubernetes, tanto de chaostoolkit como de istio

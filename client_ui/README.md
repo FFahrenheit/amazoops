@@ -6,3 +6,6 @@ Webapp que utiliza
 - Framework de Angular
 - Inyección de servicios
 - Bootstrap
+- Guards (seguridad client-side)
+- JSON Web Tokens
+- Desplegada en Docker
