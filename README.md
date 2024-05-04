@@ -8,6 +8,9 @@ _Proyecto de Computación Tolerante a fallas_
 
 **Profesor:** Michel Emanuel Lopez Franco
 
+### Guía de inicio
+Para consultar los pasos para correr el proyecto de forma local, consulta [esta guía](./GETTING_STARTED.md)
+
 ### Propuesta de proyecto
 Se propone la realización de un sistema web de tienda en línea básico que se gestione mediante microservicios y kubernetes para reforzar el despliegue y funcionamiento del sistema, además del uso de mecanismos como istio para la gestión de este, soporte de chaos y otros mecanismos para reforzar la tolerancia a fallas como SonarQube para auditoría del código
 

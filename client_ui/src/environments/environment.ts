@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  productsMicroservice: 'http://localhost:3301/api',
+  productsMicroservice: 'http://localhost:13301/api',
   ordersMicroservice: 'http://localhost:3302/api',
   placementMicroservice: 'http://localhost:3303/api'
 };
