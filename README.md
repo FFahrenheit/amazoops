@@ -8,7 +8,7 @@ _Proyecto de Computación Tolerante a fallas_
 
 **Profesor:** Michel Emanuel Lopez Franco
 
-### Guía de inicio
+### Guía de despliegue de proyecto
 Para consultar los pasos para correr el proyecto de forma local, consulta [esta guía](./GETTING_STARTED.md)
 
 ### Propuesta de proyecto
